@@ -1,0 +1,39 @@
+package main
+
+import "fmt"
+
+type Student struct {
+	name string
+	age  int
+	marks int
+}
+
+func change(n *int) {
+	*n = 20
+}
+
+func main() {
+	// 1. address and value
+	a := 10
+	p := &a
+	fmt.Println("Value of a:", a)
+	fmt.Println("Address of a:", &a)
+	fmt.Println("Value using pointer:", *p)
+
+	// 2. pass by reference
+	fmt.Println("Before modification :", a)
+	change(&a)
+	fmt.Println("After modification :", a)
+
+	// 3. struct with new()
+	s := new(Student)
+	s.name = "geetesh"
+	s.age = 28
+	s.marks = 54
+	fmt.Println("Name:", s.name)
+	fmt.Println("Age:", s.age)
+	fmt.Println("Marks:", s.marks)
+
+	s.age = 19
+	fmt.Println("New Age:", s.age)
+}
